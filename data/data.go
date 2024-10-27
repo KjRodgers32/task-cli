@@ -12,29 +12,41 @@ type Data struct {
 	Done bool
 }
 
-func createDataStore() {
-	file, err := os.Create("task.csv")
-	if err != nil {
-		fmt.Printf("this is the error boy: %v", err)
-		return
-	}
-	defer file.Close()
-}
+// func createDataStore() {
+// 	file, err := os.Create("task.csv")
+// 	if err != nil {
+// 		fmt.Printf("this is the error boy: %v", err)
+// 		return
+// 	}
+// 	defer file.Close()
+// }
 
 func getTasks() ([]Data, error){
 	file, err := os.Open("task.csv")
+	if err != nil {
+		return nil, err
+	}
 	fmt.Println(file)
-	if err != nil {
-		return nil, fmt.Errorf("error opening your task datastore: %v", err)
-	}
-
-	defer file.Close()
-
-	// data, err := io.ReadAll(file)
-	if err != nil {
-		return nil, fmt.Errorf("error reading your tasks: %v", err)
-	}
-
-
 	return nil, nil
+	// if err != nil {
+	// 	return nil, fmt.Errorf("error opening your task datastore: %v", err)
+	// }
+
+	// defer file.Close()
+
+	// // data, err := io.ReadAll(file)
+	// if err != nil {
+	// 	return nil, fmt.Errorf("error reading your tasks: %v", err)
+	// }
+
+
+	// return nil, nil
+}
+
+func createTasks() {
+	return 
+}
+
+func deleteTasks() {
+	return
 }
