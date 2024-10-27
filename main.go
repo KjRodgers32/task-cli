@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"github.com/KjRodgers32/task-cli/data"
 )
 
 func main() {
@@ -17,11 +18,11 @@ func main() {
 
 		switch response {
 			case "1":
-				data.getTasks()
+				data.GetTasks()
 			case "2":
-				data.createTask()
+				data.CreateTasks()
 			case "3":
-				data.deleteTask()
+				data.DeleteTasks()
 			case "4":
 				return
 			default:
