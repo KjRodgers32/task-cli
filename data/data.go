@@ -21,7 +21,7 @@ type Data struct {
 // 	defer file.Close()
 // }
 
-func getTasks() ([]Data, error){
+func GetTasks() ([]Data, error){
 	file, err := os.Open("task.csv")
 	if err != nil {
 		return nil, err
@@ -43,10 +43,10 @@ func getTasks() ([]Data, error){
 	// return nil, nil
 }
 
-func createTasks() {
+func CreateTasks() {
 	return 
 }
 
-func deleteTasks() {
+func DeleteTasks() {
 	return
 }
