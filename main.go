@@ -18,7 +18,18 @@ func main() {
 
 		switch response {
 			case "1":
-				data.GetTasks()
+				tasks, err := data.GetTasks()
+				if err != nil {
+					fmt.Printf("there was an error retrieving your tasks: %v\n", err)
+					return
+				}
+
+				fmt.Println("ID			Task			Created			Done")
+
+				for _, task := range tasks {
+					fmt.Printf("%s %s %d days ago %v\n", task.ID, task.Task, task.DaysBetweenTasks(), task.Done)
+				}
+
 			case "2":
 				data.CreateTasks()
 			case "3":
