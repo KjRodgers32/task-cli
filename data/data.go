@@ -19,12 +19,16 @@ func Max(nums ...int) int {
 	return largest
 }
 
-func MaxColLength(tasks []Data) int {
+func MaxColLength(tasks []Data) (int, error) {
 	var maxLength int
 	for _, task := range tasks {
-		maxLength = Max(maxLength, len(task.ID), len(task.Task), len(task.Created.Format("2006-01-02")), len(strconv.FormatBool(task.Done)))
+		day, err := task.DaysBetweenTasks()
+		if err != nil {
+			return 0, err
+		}
+		maxLength = Max(maxLength, len(task.ID), len(task.Task), len(fmt.Sprintf("%d + days ago", day)), len(strconv.FormatBool(task.Done)))
 	}
-	return maxLength
+	return maxLength, nil
 }
 
 func GetTasks() ([]Data, error) {
