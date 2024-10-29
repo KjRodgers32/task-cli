@@ -5,32 +5,7 @@ import (
 	"os"
 	"encoding/csv"
 	"time"
-	"math"
 )
-
-type Data struct {
-	ID string
-	Task string
-	Created time.Time
-	Done bool
-}
-
-func (d *Data) DaysBetweenTasks() int {
-	timeInBetween := time.Since(d.Created)
-	if timeInBetween.Hours() <= 24.0 {
-		return 0
-	} else {
-		return int(math.Floor(timeInBetween.Hours() / 24))
-	}
-}
-// func createDataStore() {
-// 	file, err := os.Create("task.csv")
-// 	if err != nil {
-// 		fmt.Printf("this is the error boy: %v", err)
-// 		return
-// 	}
-// 	defer file.Close()
-// }
 
 func GetTasks() ([]Data, error) {
 	file, err := os.Open("task.csv")
