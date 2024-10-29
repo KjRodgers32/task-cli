@@ -27,7 +27,11 @@ func main() {
 				fmt.Println("ID			Task			Created			Done")
 
 				for _, task := range tasks {
-					fmt.Printf("%s %s %d days ago %v\n", task.ID, task.Task, task.DaysBetweenTasks(), task.Done)
+					daysPassed, err := task.DaysBetweenTasks()
+					if err != nil {
+						fmt.Printf("there was an error calculating days between tasks: %v", err)
+					}
+					fmt.Printf("%s %s %d days ago %v\n", task.ID, task.Task, daysPassed, task.Done)
 				}
 
 			case "2":
