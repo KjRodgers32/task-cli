@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-
 	"github.com/KjRodgers32/task-cli/data"
 )
 
@@ -49,4 +48,3 @@ func main() {
 		}
 	}
 }
-
