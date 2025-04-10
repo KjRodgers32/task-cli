@@ -9,7 +9,7 @@ import (
 	"time"
 )
 
-func Max(nums ...int) int {
+func rowMax(nums ...int) int {
 	largest := int(math.Inf(-1))
 	for _, num := range nums {
 		if num > largest {
@@ -26,7 +26,7 @@ func MaxColLength(tasks []Data) (int, error) {
 		if err != nil {
 			return 0, err
 		}
-		maxLength = Max(maxLength, len(task.ID), len(task.Task), len(fmt.Sprintf("%d + days ago", day)), len(strconv.FormatBool(task.Done)))
+		maxLength = rowMax(maxLength, len(task.ID), len(task.Task), len(fmt.Sprintf("%d + days ago", day)), len(strconv.FormatBool(task.Done)))
 	}
 	return maxLength, nil
 }

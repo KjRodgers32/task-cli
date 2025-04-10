@@ -20,3 +20,10 @@ type TestData struct {
 type DataMethods interface {
 	DaysBetweenTasks() int
 }
+
+type RowLength struct {
+	IdLength     int
+	TaskLength   int
+	CreaedLength int
+	DoneLength   int
+}
